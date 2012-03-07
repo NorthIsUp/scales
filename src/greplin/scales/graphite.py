@@ -43,8 +43,6 @@ class GraphitePusher(object):
     if self.prefix and self.prefix[-1] != '.':
       self.prefix += '.'
 
-    print self.prefix
-
     self.graphite = util.GraphiteReporter(host, port)
 
 
