@@ -16,25 +16,38 @@
 """Setup script for greplin-twisted-utils."""
 
 try:
-  from setuptools import setup
+    from setuptools import setup
 except ImportError:
-  from distutils.core import setup
+    #NIU: why have this?
+    from distutils.core import setup
 
-setup(name='scales',
-      version='1.0.2',
-      description='Stats for Python processes',
-      license='Apache',
-      author='Greplin, Inc.',
-      author_email='opensource@greplin.com',
-      url='https://www.github.com/Greplin/scales',
-      package_dir = {'':'src'},
-      packages = [
-        'greplin',
-        'greplin.scales',
-      ],
-      namespace_packages = [
-        'greplin',
-      ],
-      test_suite = 'nose.collector',
-      zip_safe = True
+__version__ = '1.0.2'
+
+tests_require = [
+    'nose',
+]
+
+packages = (
+    'greplin',
+    'greplin.scales',
+    )
+
+namespace_packages = (
+    'greplin',
+    )
+
+setup(
+    author='Greplin, Inc.',
+    author_email='opensource@greplin.com',
+    description='Stats for Python processes',
+    license='Apache',
+    name='scales',
+    namespace_packages=namespace_packages,
+    package_dir={'': 'src'},
+    packages=packages,
+    test_suite='nose.collector',
+    tests_require=tests_require,
+    url='https://www.github.com/Greplin/scales',
+    version=__version__,
+    zip_safe=True
 )
